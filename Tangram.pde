@@ -8,7 +8,7 @@ color MatrizColor[];
 int i;
 float tre=1;
 int puntaje=0;
-int nivel=1;
+int nivel=0;
 int n=1;
 int m=1;
 int Contador=0;
@@ -432,8 +432,32 @@ void MoverFiguras()
   }
 }
 
+void MenuInicio()
+{
+  if (nivel==0)
+  {
+    background(145,148,255);
+    fill(255);
+    textSize(200);
+    textAlign(CENTER,CENTER);
+      text("TANGRAM", (width/2),height/4-20);
+      
+    textSize(40);
+      text("1.  Cubra la figura blanca con las diferentes fichas", (width/2),height/2-20);
+      text("2.  Seleccione y arrastre las fichas con clic izquierdo", (width/2),height/2+30);
+      text("3.  Gire las fichas con clic derecho", (width/2),height/2+80);
+
+    textSize(50);
+      textAlign(CENTER,TOP);
+      text("De clic para continuar", (width/2),(3*height)/4);
+    noLoop();
+    nivel++;
+  }
+}
+
 void contar()
 {
+  MenuInicio();
   loadPixels();
   
     for(int Pix=0; Pix<pixels.length;Pix++)
@@ -484,7 +508,7 @@ void TextoCortinilla()
   fill(250);
     textSize(50);
     textAlign(CENTER,TOP);
-      text("Para Continuar de Click", width/2, 0);
+      text("Para Continuar de Clic", width/2, 0);
       
   TextoSalida();    
 }
