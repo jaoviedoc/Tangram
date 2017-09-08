@@ -34,9 +34,7 @@ void draw()
   TextoJuego();
   DibujarFiguras();
   MoverFiguras();
-
-  loadPixels();
-  contar();
+  MenuInicio();
 }
 
 void TextoJuego()
@@ -46,7 +44,7 @@ void TextoJuego()
     textAlign(CENTER,TOP);
       text("Nivel:", (width/2)-60, 0);
       text(nivel, (width/2)+50, 0);
-    TextoSalida();
+  TextoSalida();
 }
 
 void Preestablecer()
@@ -457,7 +455,6 @@ void MenuInicio()
 
 void contar()
 {
-  MenuInicio();
   loadPixels();
   
     for(int Pix=0; Pix<pixels.length;Pix++)
@@ -465,7 +462,6 @@ void contar()
       if(pixels[Pix] == color (255))
       {
         Contador++;
-        //print(Contador);
       }   
     }
     
@@ -485,8 +481,8 @@ void contar()
         TextoSalida();
       }
       
-        nivel++;
-        Preestablecer();
+      nivel++;
+      Preestablecer();
     }
     
   Contador=0;
@@ -572,4 +568,5 @@ void mouseClicked()
 void mouseReleased()
 {
   reset = -1;
+  contar();
 }
